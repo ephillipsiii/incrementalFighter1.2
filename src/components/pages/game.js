@@ -1,8 +1,13 @@
 import React from 'react';
+import player from '../../images/gargoyle_male.png'
+import enemy from '../../images/death_knight.png'
+import floor from '../../images/tomb_1_old.png'
 import {mainWeapon} from './gear'
 
 const Game = props => (
-    <div >
+    <div style={{
+        backgroundImage: `url(${floor})`
+    }}>
         <div
             style={{
                 width:'50%',
@@ -12,8 +17,13 @@ const Game = props => (
             }}
             onClick={() => props.attack(mainWeapon.dmg)}
         >
-            <p style={{}}>{props.enemyHealth}</p>
-            <img src='' alt='Enemy' />
+            <p style={{
+                color:'white'
+            }}>{props.enemyHealth}</p>
+            <img src={enemy} alt='Enemy' style={{
+                height: '100px',
+                width: '100px'
+            }}/>
         </div>
         <div>
             <p style={{
@@ -21,7 +31,12 @@ const Game = props => (
             }}>Action Log</p>
         </div>
         <div>
-            <img src='./../images/demonspawn_black_male.png' alt='Player' style={{ position: 'fixed', left: 0, bottom: 0 }} />
+            <img src={player} alt='Player' style={{
+                position: 'fixed',
+                left: 0, 
+                bottom: 0,
+                width: '100px',
+                height: '100px' }} />
         </div>
     </div>
 );
