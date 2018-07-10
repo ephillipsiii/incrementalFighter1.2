@@ -8,25 +8,9 @@ const Game = props => (
     <div style={{
         backgroundImage: `url(${floor})`
     }}>
-        <div
-            style={{
-                width: '50%',
-                height: '100%',
-                position: 'fixed',
-                right: 0,
-                backgroundImage: `url(${floor})`
-            }}
-            onClick={() => props.attack(mainWeapon.dmg)}
-        >
-            <p style={{
-                color: 'white'
-            }}>{props.enemyHealth}</p>
-            <img src={enemy} alt='Enemy' style={{
-                height: '100px',
-                width: '100px'
-            }} />
-        </div>
-        <div style={{}}>
+        <div style={{
+            backgroundImage: `url(${floor})`
+        }}>
             <div
                 style={{
                     backgroundImage: `url(${floor})`
@@ -38,16 +22,14 @@ const Game = props => (
                 }}>Action Log</p>
                 <p style={{
                     color: 'white',
-                    textAlign: 'left'
+                    textAlign: 'left',
+                    margin: 0
                 }}>
                     Enemies Killed:
                     {props.enemiesKilled}
                 </p>
             </div>
-            <div
-                style={{
-                    backgroundImage: `url(${floor})`
-                }}>
+            <div>
                 <img src={player} alt='Player' style={{
                     position: 'fixed',
                     left: 0,
@@ -57,6 +39,27 @@ const Game = props => (
                 }} />
             </div>
         </div>
+
+        <div
+            style={{
+                width: '50%',
+                height: '100%',
+                position: 'fixed',
+                right: 0,
+                backgroundImage: `url(${floor})`
+            }}>
+            <p style={{
+                color: 'white'
+            }}>{props.enemyHealth}</p>
+            <img src={enemy} alt='Enemy' style={{
+                height: '100px',
+                width: '100px'
+            }}
+            onClick={() => props.attack(mainWeapon.dmg)}
+         />
+        </div>
+
+
     </div>
 );
 
