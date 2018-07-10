@@ -26,14 +26,23 @@ const Game = props => (
                 width: '100px'
             }} />
         </div>
-        <div style={{
-            backgroundImage:   `url(${floor})`
-        }}>
-            <div>
+        <div style={{}}>
+            <div
+                style={{
+                    backgroundImage: `url(${floor})`
+                }}
+            >
                 <p style={{
                     color: 'white',
                     textAlign: 'left'
                 }}>Action Log</p>
+                <p style={{
+                    color: 'white',
+                    textAlign: 'left'
+                }}>
+                    Enemies Killed:
+                    {props.enemiesKilled}
+                </p>
             </div>
             <div
                 style={{

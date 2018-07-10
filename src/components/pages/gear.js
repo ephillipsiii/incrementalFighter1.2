@@ -21,5 +21,7 @@ const MainWeapon = {
     dmg: 5
 }
 
+MainWeapon.dmg = 10;
+
 export const Gear = gear,
     mainWeapon = MainWeapon;
