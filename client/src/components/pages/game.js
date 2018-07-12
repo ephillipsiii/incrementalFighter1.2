@@ -10,51 +10,73 @@ const Game = props => (
     }}>
         <div
             style={{
-                width: '50%',
-                height: '100%',
                 position: 'fixed',
-                right: 0,
+                left: 0,
+                height: '100%',
+                width: '50%',
                 backgroundImage: `url(${floor})`
             }}
-            onClick={() => props.attack(mainWeapon.dmg)}
         >
-            <p style={{
-                color: 'white'
-            }}>{props.enemyHealth}</p>
-            <img src={enemy} alt='Enemy' style={{
-                height: '100px',
-                width: '100px'
-            }} />
-        </div>
-        <div style={{}}>
-            <div
-                style={{
-                    backgroundImage: `url(${floor})`
-                }}
-            >
-                <p style={{
-                    color: 'white',
-                    textAlign: 'left'
-                }}>Action Log</p>
-                <p style={{
-                    color: 'white',
-                    textAlign: 'left'
-                }}>
-                    Enemies Killed:
+            <div style={{
+                backgroundImage: `url(${floor})`
+            }}>
+                <div
+                    style={{}}
+                >
+                    <p style={{
+                        color: 'white',
+                        textAlign: 'left'
+                    }}>Action Log</p>
+                    <p style={{
+                        color: 'white',
+                        textAlign: 'left',
+                        margin: 0
+                    }}>
+                        Enemies Killed:
                     {props.enemiesKilled}
-                </p>
-            </div>
-            <div
-                style={{
+                    </p>
+                </div>
+
+
+
+                <div style={{
                     backgroundImage: `url(${floor})`
                 }}>
-                <img src={player} alt='Player' style={{
-                    position: 'fixed',
-                    left: 0,
-                    bottom: 0,
-                    width: '100px',
-                    height: '100px',
-                }} />
+                    <img src={player} alt='Player' style={{
+                        position: 'fixed',
+                        left: 0,
+                        bottom: 0,
+                        width: '100px',
+                        height: '100px',
+                    }} />
+                </div>
+            </div>
+
+            <div style={{
+                position: 'fixed',
+                height: '100%',
+                width:'50%',
+                right: 0,
+                backgroundImage: `url(${floor})`
+            }}>
+                <div
+                    style={{
+                    }}>
+                    <p style={{
+                        textAlign: 'right',
+                        color: 'white'
+                    }}>{props.enemyHealth}</p>
+                    <img src={enemy} alt='Enemy' style={{
+                        position: 'fixed',
+                        right: 0,
+                        height: '100px',
+                        width: '100px'
+                    }}
+                        onClick={() => props.attack(mainWeapon.dmg)}
+                    />
+
+
+                </div>
             </div>
         </div>
     </div>
