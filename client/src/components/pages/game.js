@@ -5,27 +5,23 @@ import floor from '../../images/tomb_1_old.png'
 import { mainWeapon } from './gear'
 
 const Game = props => (
+
     <div style={{
         backgroundImage: `url(${floor})`
     }}>
         <div
             style={{}}
         >
-            <p style={{
-                color: 'white',
-                textAlign: 'left'
-            }}>Action Log</p>
+
             <p style={{
                 color: 'white',
                 textAlign: 'left',
                 margin: 0
-            }}>
-                Enemies Killed:
-        {props.enemiesKilled}
+            }}
+                id='killCount'>
+                Enemies Killed: {props.enemiesKilled}
             </p>
         </div>
-
-
         <div
             style={{
                 position: 'fixed',
@@ -42,6 +38,15 @@ const Game = props => (
                 <div style={{
                     backgroundImage: `url(${floor})`
                 }}>
+                
+                <p style={{
+                    color: 'white',
+                    textAlign: 'left'
+                }}>Action Log</p>
+                <p style={{
+                    color: 'white'
+                }}>
+                {props.actions}</p>
                     <img src={player} alt='Player' style={{
                         position: 'fixed',
                         left: 0,
@@ -56,6 +61,7 @@ const Game = props => (
                 position: 'fixed',
                 height: '100%',
                 width: '50%',
+                top:100,
                 right: 0,
                 backgroundImage: `url(${floor})`
             }}>
@@ -73,6 +79,8 @@ const Game = props => (
                         width: '100px'
                     }}
                         onClick={() => props.attack(mainWeapon.dmg)}
+
+
                     />
 
 

@@ -10,7 +10,8 @@ class GameContainer extends Component {
     currentPage: "Game",
     enemyHealth: 100,
     damagePerSecond: 1,
-    enemiesKilled:0
+    enemiesKilled:0,
+    actions:[]
   };
   idleDamage = () => {
     let dpsOn = setTimeout(() => {
@@ -22,11 +23,10 @@ class GameContainer extends Component {
     }
   }
   attack = dmg => {
-    this.setState({ enemyHealth: this.state.enemyHealth - dmg })
+    this.setState({ enemyHealth: this.state.enemyHealth - dmg, actions: [...this.state.actions, `Attacked for ${dmg}\n`] })
     if(this.state.enemyHealth === 0){
       this.setState({enemiesKilled: this.enemiesKilled + 1 })
     }
-    console.log(`Attacked for ${dmg}`)
   }
   handlePageChange = page => {
     this.setState({ currentPage: page });
@@ -35,6 +35,7 @@ class GameContainer extends Component {
     switch (this.state.currentPage) {
       case "Game":
         return <Game
+          actions={this.state.actions}
           enemiesKilled={this.state.enemiesKilled}
           enemyHealth={this.state.enemyHealth}
           attack={this.attack}/>
