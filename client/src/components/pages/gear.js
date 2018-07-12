@@ -2,7 +2,7 @@ import React from 'react';
 import player from '../../images/gargoyle_male.png'
 
 
-const gear = () => (
+const gear = props => (
     <div>
         Check out your gear, and switch out items
         <br/>
@@ -21,7 +21,6 @@ const MainWeapon = {
     dmg: 5
 }
 
-MainWeapon.dmg = 10;
 
 export const Gear = gear,
     mainWeapon = MainWeapon;

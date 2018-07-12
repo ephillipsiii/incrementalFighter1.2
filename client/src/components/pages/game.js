@@ -78,7 +78,7 @@ const Game = props => (
                         height: '100px',
                         width: '100px'
                     }}
-                        onClick={() => props.attack(mainWeapon.dmg)}
+                        onClick={() => props.attack(mainWeapon.dmg+(props.enemiesKilled*1.5))}
 
 
                     />
