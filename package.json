@@ -3,25 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "mongoose": "^5.0.17",
-    "if-env": "^1.0.4"
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "mongodb": "^3.1.1",
+    "mongoose": "^5.2.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
-    "prod": "node server.js",
-    "dev": "concurrently \"nodemon server.js\" \"cd client && yarn start\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && yarn install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
-  }
+  "license": "ISC"
 }
