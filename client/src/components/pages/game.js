@@ -9,6 +9,24 @@ const Game = props => (
         backgroundImage: `url(${floor})`
     }}>
         <div
+            style={{}}
+        >
+            <p style={{
+                color: 'white',
+                textAlign: 'left'
+            }}>Action Log</p>
+            <p style={{
+                color: 'white',
+                textAlign: 'left',
+                margin: 0
+            }}>
+                Enemies Killed:
+        {props.enemiesKilled}
+            </p>
+        </div>
+
+
+        <div
             style={{
                 position: 'fixed',
                 left: 0,
@@ -20,24 +38,6 @@ const Game = props => (
             <div style={{
                 backgroundImage: `url(${floor})`
             }}>
-                <div
-                    style={{}}
-                >
-                    <p style={{
-                        color: 'white',
-                        textAlign: 'left'
-                    }}>Action Log</p>
-                    <p style={{
-                        color: 'white',
-                        textAlign: 'left',
-                        margin: 0
-                    }}>
-                        Enemies Killed:
-                    {props.enemiesKilled}
-                    </p>
-                </div>
-
-
 
                 <div style={{
                     backgroundImage: `url(${floor})`
@@ -55,7 +55,7 @@ const Game = props => (
             <div style={{
                 position: 'fixed',
                 height: '100%',
-                width:'50%',
+                width: '50%',
                 right: 0,
                 backgroundImage: `url(${floor})`
             }}>
