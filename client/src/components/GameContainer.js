@@ -25,7 +25,7 @@ class GameContainer extends Component {
   attack = dmg => {
     this.setState({ enemyHealth: this.state.enemyHealth - dmg, actions: [...this.state.actions, `Attacked for ${dmg}\n`] })
     if(this.state.enemyHealth === 0){
-      this.setState({enemiesKilled: this.enemiesKilled + 1 })
+      this.setState({enemyHealth: 100, enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `Killed the Enemy!`] })
     }
   }
   handlePageChange = page => {
