@@ -1,8 +1,23 @@
-var express = require("express");
-var app = express()
+const express = require("express");
+const bodyParser = require("body-parser");
+// const mongoose = require("mongoose");
+// const routes = require("./routes");
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-app.get('/', function(req,res){
-    res.send("mongodb should work now")
-})
+// Define middleware here
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+// Serve up static assets (usually on heroku)
+app.use(express.static("client/build"));
 
-app.listen(3001)
+// Add routes, both API and view
+// app.use(routes);
+
+// Connect to the Mongo DB
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`Server now listening on PORT ${PORT}!`);
+});
