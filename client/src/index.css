@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+h1.App-title {
+  background: black;
+  color:white;
+
+
+}
+
+div.App {
+  background: black;
+  color: white;
+}
+
+#killCount{
+ 
+}
