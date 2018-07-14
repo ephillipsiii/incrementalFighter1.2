@@ -6,7 +6,6 @@
 
 # testing
 /coverage
-/scripts/testSeed.js
 
 # production
 /build
