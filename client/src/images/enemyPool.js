@@ -11,6 +11,7 @@ import ogre from './enemies/ogre_old.png';
 import orc from './enemies/orc_knight_old.png';
 
 
+
 var imageSrc = deathKnight;
 // var poolOfEnemies = [{hp: this.props.hp, 
 //                         characterPic: this.props.pictureId}]
