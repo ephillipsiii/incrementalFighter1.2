@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavTabs from './navtabs'
 import Game from './pages/game'
+import {enemy} from '../images/enemyPool'
 import Contact from './pages/contact'
 import {Gear} from './pages/gear'
 import Stats from './pages/stats'
@@ -30,6 +31,7 @@ class GameContainer extends Component {
     this.setState({ enemyHealth: this.state.enemyHealth - dmg, actions: [...this.state.actions, `|| Attacked for ${dmg}\n`] })
     if(this.state.enemyHealth < 10){
       this.setState({enemyHealth: 100+(this.state.enemiesKilled*10), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
+      enemy()
     }
     if(this.state.actions.length>=10){
       this.setState({actions: this.remove(this.state.actions, 0)})
