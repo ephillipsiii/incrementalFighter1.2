@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavTabs from './navtabs'
 import Game from './pages/game'
-import enemy from '../images/enemyPool'
+import {enemy} from '../images/enemyPool'
 import Contact from './pages/contact'
 import {Gear} from './pages/gear'
 import Stats from './pages/stats'
@@ -14,9 +14,6 @@ class GameContainer extends Component {
     enemiesKilled:0,
     actions:[]
   };
-  componentDidMount(){
-    enemy()
-  }
   idleDamage = () => {
     let dpsOn = setTimeout(() => {
     let dps = this.state.damagePerSecond
