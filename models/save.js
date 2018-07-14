@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 const currentUser = "Johnny";
 
 const saveSchema = new Schema({
-    enemieskilled: {type: Number}
+    currentPage: {type: String},
+    enemyHealth: {type: Number},
+    damagePerSecond: {type: Number},
+    enemiesKilled: {type: Number},
+    actions: []
 });
 
 const Save = mongoose.model(currentUser, saveSchema);
