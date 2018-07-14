@@ -70,7 +70,7 @@ const Game = props => (
                     }}>
                     <p style={{
                         textAlign: 'right',
-                        color: 'white',
+                        color: 'white'
                     }}>{props.enemyHealth}</p>
                     <img src={imageSrc} alt='Enemy' style={{
                         position: 'fixed',
