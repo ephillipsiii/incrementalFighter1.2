@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const consumableSchema = new Schema({
     name: {type: String},
-    description: {tpye: String},
-    type: {tpye: String},
+    description: {type: String},
+    tier: {type: Number},
+    type: {type: String},
     effect: {type: Number},
 });
 
