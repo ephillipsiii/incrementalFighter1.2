@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const saveSchema = new Schema({
-    currentPage: {type: String},
+    name: {type: String},
     enemyHealth: {type: Number},
     damagePerSecond: {type: Number},
     enemiesKilled: {type: Number},
-    actions: []
+    actions: [],
 });
 
-const Save = mongoose.model("Save", saveSchema);
+const Save = mongoose.model("Saves", saveSchema);
 
 module.exports = Save;
