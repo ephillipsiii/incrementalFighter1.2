@@ -1,13 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-
-@font-face{
-  font-family: 'Press Start 2P', cursive;
-  src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-}
-
 body {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   font-family: 'Press Start 2P', cursive;
   src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 }
@@ -50,3 +44,7 @@ a.nav-link.active{
   border-left: 7px dotted white;
   border-right: 7px dotted white;
 }
+=======
+  font-family: sans-serif;
+}
+>>>>>>> 9cdb1ffc198d36c77b8e410aa7669545a24ff3a2

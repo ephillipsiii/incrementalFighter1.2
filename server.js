@@ -1,20 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const routes = require("./routes");
+const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-<<<<<<< HEAD
-=======
 
->>>>>>> test
 
 // Add routes, both API and view
-// app.use(routes);
+app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/incDatabase");
@@ -23,5 +20,3 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/incDatabase");
 app.listen(PORT, function() {
   console.log(`Server now listening on PORT ${PORT}!`);
 });
-
-
