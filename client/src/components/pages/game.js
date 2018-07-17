@@ -21,6 +21,12 @@ const Game = props => (
                 id='killCount'>
                 Enemies Killed: {props.enemiesKilled}
             </p>
+            <p style={{
+                color: 'white',
+                textAlign: 'left',
+                margin: 0
+            }}
+            >PLayer Deaths: {props.playerDeaths}</p>
         </div>
         <div
             style={{
@@ -47,6 +53,11 @@ const Game = props => (
                     color: 'white'
                 }}>
                 {props.actions}</p>
+                    <p style={{
+                        position:'fixed',
+                        left:0,
+                        bottom: 100
+                    }}>{props.playerHealth}</p>
                     <img src={player} alt='Player' style={{
                         position: 'fixed',
                         left: 0,
@@ -79,7 +90,7 @@ const Game = props => (
                         height: '100px',
                         width: '100px'
                     }}
-                        onClick={() => props.attack(mainWeapon.dmg+(props.enemiesKilled*1.5))}
+                        onClick={() => props.attack(mainWeapon.dmg)}
 
 
                     />
