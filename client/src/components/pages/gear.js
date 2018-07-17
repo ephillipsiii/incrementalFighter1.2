@@ -3,9 +3,11 @@ import player from '../../images/gargoyle_male.png'
 
 
 const gear = props => (
-    <div>
+    <div style={{
+        height: '100%'
+    }}>
         Check out your gear, and switch out items
-        <br/>
+        <br />
         <img src={player} alt='Player' style={{
             position: 'relative',
             top: 0,
@@ -13,6 +15,13 @@ const gear = props => (
             width: '200px',
             height: '200px',
         }} />
+        <br />
+        <div>
+            <p>
+                You've killed {props.enemiesKilled} enemies, giving your weapon {props.enemiesKilled * 1.5} bonus damage.
+                Your deaths grant you mercy... Gain {props.playerDeaths * 0.5} donus damage.
+            </p>
+        </div>
     </div>
 
 )
