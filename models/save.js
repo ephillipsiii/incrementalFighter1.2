@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const currentUser = "Johnny";
 
 const saveSchema = new Schema({
     currentPage: {type: String},
@@ -10,6 +9,6 @@ const saveSchema = new Schema({
     actions: []
 });
 
-const Save = mongoose.model(currentUser, saveSchema);
+const Save = mongoose.model("Save", saveSchema);
 
 module.exports = Save;

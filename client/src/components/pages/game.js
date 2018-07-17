@@ -1,11 +1,11 @@
 import React from 'react';
 import player from '../../images/gargoyle_male.png'
-import enemy from '../../images/death_knight.png'
+import {imageSrc} from '../../images/enemyPool.js'
 import floor from '../../images/tomb_1_old.png'
 import { mainWeapon } from './gear'
 
 const Game = props => (
-
+    
     <div style={{
         backgroundImage: `url(${floor})`
     }}>
@@ -72,7 +72,7 @@ const Game = props => (
                         textAlign: 'right',
                         color: 'white'
                     }}>{props.enemyHealth}</p>
-                    <img src={enemy} alt='Enemy' style={{
+                    <img src={imageSrc} alt='Enemy' style={{
                         position: 'fixed',
                         right: 0,
                         height: '100px',
