@@ -29,7 +29,7 @@ class GameContainer extends Component {
   };
   attack = dmg => {
     this.setState({ enemyHealth: this.state.enemyHealth - dmg, actions: [...this.state.actions, `|| Attacked for ${dmg}\n`] })
-    if(this.state.enemyHealth < 10){
+    if(this.state.enemyHealth < dmg){
       this.setState({enemyHealth: 100+(this.state.enemiesKilled*10), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
       enemy()
     }
