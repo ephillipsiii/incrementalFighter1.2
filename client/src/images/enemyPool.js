@@ -24,7 +24,6 @@ var imageSrc = deathKnight;
 //     }
 
 const enemy = () => {
-    console.log(imageSrc)
 
     if (imageSrc===demon){
         imageSrc = deathKnight
