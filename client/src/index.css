@@ -17,8 +17,11 @@ h1.App-title {
   color:white;
   font-family: 'Press Start 2P', cursive;
   src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+  font-size: 26px;
   margin-top: 0;
-
+  font: bold;
+    border-top: 7px dotted white;
+    font-display: center;
 }
 
 div.App {
@@ -32,4 +35,18 @@ div.App {
   font-family: 'Press Start 2P', cursive;
   src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
   height: 25px;
+  border: 5px, red;
+}
+
+ul.nav.nav-tabs{
+  border-top: 7px dotted white;
+	box-shadow: inset 0 3px 0 0 white, 0 -3px 0 0 white;
+    border-bottom: 7px dotted white;
+	box-shadow: inset 0 -3px 0  black, 0 3px 0 black;
+  
+}
+
+a.nav-link.active{
+  border-left: 7px dotted white;
+  border-right: 7px dotted white;
 }
