@@ -14,8 +14,9 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "cd client && yarn start",
-    "build": "cd client && yarn build",
+    "start": "yarn seed && cd client && yarn start",
+    "build": "yarn seed && cd client && yarn build",
+    "seed": "node scripts/seedDB.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
