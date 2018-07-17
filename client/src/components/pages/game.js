@@ -64,7 +64,7 @@ const Game = props => (
                 top:100,
                 right: 0,
                 backgroundImage: `url(${floor})`
-            }}>
+            }} id = 'enemyDiv'>
             <p style={{color:'white'}}>Click on the enemy to attack! --></p>
                 <div
                     style={{
