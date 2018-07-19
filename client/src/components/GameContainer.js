@@ -14,44 +14,46 @@ class GameContainer extends Component {
     playerHealth: 50,
     enemiesKilled: 0,
     playerDeaths:0,
+    bossesBeat:0,
+    bossFight: false,
     actions: []
   };
-  idleDamage = () => {
-    let dpsOn = setTimeout(() => {
-      let dps = this.state.damagePerSecond
-      this.setState({ enemyHealth: this.state.enemyHealth - dps })
-    }, 1000);
-    if (this.state.enemyHealth === 0) {
-      clearTimeout(dpsOn)
-    }
-  }
   remove = (items, index) => {
     return [...items.slice(0, index),
     ...items.slice(index + 1, items.length)];
   };
   attack = dmg => {
-    let playerFullDmg =dmg + Math.ceil((this.state.enemiesKilled*1.5)+(this.state.playerDeaths*0.5))
-    let enemyFullDmg = Math.ceil(this.state.enemyDamage+(this.state.enemiesKilled*0.4)+(this.state.playerDeaths*0.4))
-    if(this.state.enemiesKilled>=10&&this.state.enemiesKilled % 5 === 0){
-      enemyFullDmg=Math.ceil(enemyFullDmg*2)
+    let playerFullDmg =dmg + Math.ceil((this.state.enemiesKilled*1.1)+(this.state.playerDeaths*0.25))
+    let enemyFullDmg = Math.floor((this.state.enemyDamage)+(this.state.enemiesKilled*.3)-(this.state.bossesBeat*.5))
+    if(this.state.enemiesKilled>=5)
+    if(this.state.enemiesKilled>=5&&this.state.enemiesKilled % 5 === 0){
+      console.log(this.state.bossFight)
+      this.setState({bossFight:true,actions:[...this.state.actions, `||BOSS FIGHT||`]})
+      enemyFullDmg=Math.floor(enemyFullDmg*1.55)
     }
     this.setState({ enemyHealth: this.state.enemyHealth - playerFullDmg, playerHealth: this.state.playerHealth - enemyFullDmg, actions: [...this.state.actions, `|| Attacked enemy for ${playerFullDmg}, Enemy hit you for ${enemyFullDmg}`] })
     if (this.state.enemyHealth <= playerFullDmg) {
-      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 10),playerHealth: this.state.playerHealth+((this.state.enemiesKilled+1)*5), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
+      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 7), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
       console.log(this.state.playerHealth, this.state.enemyHealth)
       enemy()
+      if(this.state.bossFight===true){
+        this.setState({bossFight:false, bossesBeat:this.state.bossesBeat+1})
+      }
     }
     if (this.state.playerHealth <= enemyFullDmg) {
       console.log(this.state.playerHealth, this.state.enemyDamage)
-      this.setState({enemyHealth: 100+(this.state.enemiesKilled * 10),playerHealth:50+(this.state.enemiesKilled*5), playerDeaths: this.state.playerDeaths+1, actions:[...this.state.actions, '||The Enemy Killed you!']})
+      this.setState({enemyHealth: 100+(this.state.enemiesKilled * 10),playerHealth:50+((this.state.enemiesKilled+1)*2.5), playerDeaths: this.state.playerDeaths+1, actions:[...this.state.actions, '||The Enemy Killed you!']})
     }
-    if (this.state.actions.length > 4) {
+    if (this.state.actions.length >= 5) {
       this.setState({ actions: this.remove(this.state.actions, 0) })
     }
   }
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
+  returnState = () => {
+    return this.state.enemiesKilled;
+  }
   renderPage = () => {
     switch (this.state.currentPage) {
       case "Game":
@@ -60,10 +62,12 @@ class GameContainer extends Component {
           playerHealth={this.state.playerHealth}
           playerDeaths = {this.state.playerDeaths}
           enemiesKilled={this.state.enemiesKilled}
+          bossesBeat={this.state.bossesBeat}
           enemyHealth={this.state.enemyHealth}
           attack={this.attack} />
       case "Gear":
         return <Gear
+          bossesBeat={this.state.bossesBeat}
           enemiesKilled={this.state.enemiesKilled}
           playerDeaths={this.state.playerDeaths} />
       case "Stats":
