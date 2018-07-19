@@ -20,6 +20,13 @@ const Game = props => (
             }}
                 id='killCount'>
                 Enemies Killed: {props.enemiesKilled}
+            </p><p style={{
+                color: 'white',
+                textAlign: 'left',
+                margin: 0
+            }}
+                id='killCount'>
+                Bosses Beaten: {props.bossesBeat}
             </p>
             <p style={{
                 color: 'white',
