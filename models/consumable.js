@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const consumableSchema = new Schema({
     name: {type: String},
-    description: {tpye: String},
+    description: {type: String},
     effect: {type: Number},
 });
 
