@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactModalLogin from 'react-modal-login';
  
-import {facebookConfig, googleConfig} from "social-config";
+import {facebookConfig, googleConfig} from "../authentication/social-config";
  
+const modalLogin = props => (
 class Sample extends React.Component {
  
   constructor(props) {
@@ -105,3 +106,5 @@ class Sample extends React.Component {
     )
   }
 }
+)
+export default modalLogin;

@@ -4,6 +4,8 @@ import {imageSrc} from '../../images/enemyPool.js'
 import floor from '../../images/tomb_1_old.png'
 import { mainWeapon } from './gear'
 
+import modalLogin from "./modalLogin.js";
+
 const Game = props => (
     
     <div style={{
