@@ -21,7 +21,7 @@ h1.App-title {
   font: bold;
   border-top: 7px dotted white;
   font-display: center;
-  padding-top: 0px;
+  padding-top: 8px;
 }
 
 div.App {
@@ -34,8 +34,9 @@ div.App {
 #killCount{
   font-family: 'Press Start 2P', cursive;
   src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-  height: 25px;
-  border-top: 10px;
+  height: 20px;
+  border-top: 0px;
+  background: red;
 }
 
 ul.nav.nav-tabs{
@@ -62,7 +63,32 @@ a.nav-link{
   padding: 0px;
 }
 #enemyDiv {
-  margin-top: 20px;
-  padding-top: 0px;
+  margin-top: 60px;
+  padding-right: 0px;
   border-top: 0;
+}
+#playerDeaths {
+  background: rgb(0, 255, 98);
+}
+
+#actionLog {
+  background: rgb(177, 151, 151);
+}
+
+#enemyClick {
+  background:  rgb(177, 151, 151);
+}
+
+#playerHealth {
+  padding-left: 40px;
+}
+
+#player{
+}
+
+#enemyHealth{
+  padding-right: 30px;
+}
+
+#enemy{
 }
