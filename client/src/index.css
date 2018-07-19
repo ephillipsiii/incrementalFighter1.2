@@ -49,12 +49,6 @@ ul.nav.nav-tabs{
   padding: 6px;
 }
 
-a.nav-link.active{
-  border-left:;
-
-}
-a.nav-link{
-}
 .nav-item{
   border-right:7px dotted white;
   background: black;
@@ -83,12 +77,6 @@ a.nav-link{
   padding-left: 40px;
 }
 
-#player{
-}
-
 #enemyHealth{
   padding-right: 30px;
-}
-
-#enemy{
 }
