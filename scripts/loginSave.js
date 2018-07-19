@@ -7,18 +7,18 @@ mongoose.connect(
 );
 
 const loginSave = {
-        name: "Player",
-        enemyHealth: 100,
-        damagePerSecond: 1,
-        enemiesKilled: 0,
-        actions:[]
+    enemyHealth: 100,
+    enemyDamage: 0,
+    playerHealth: 100,
+    enemiesKilled: 0,
+    playerDeaths: 0
     };
 
 
 
 db.Save
     .remove({})
-    .then(() => db.Save.collection.insertMany(loginSave))
+    .then(() => db.Save.collection.insert(loginSave))
     .then(data => {
         console.log("--Start Progress Saved!--");
         process.exit(0);

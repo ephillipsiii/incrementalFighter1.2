@@ -4,8 +4,8 @@ export default {
     loadGame: function() {
         return axios.get("/api/saves");
     },
-    saveGame: function() {
-        return axios.post("/api/saves");
+    saveGame: function(saveData) {
+        return axios.post("/api/saves", saveData);
     },
     firstConsumable: function() {
         return axios.get("/api/consumables")

@@ -13,7 +13,7 @@ class GameContainer extends Component {
     enemyDamage: 1,
     playerHealth: 50,
     enemiesKilled: 0,
-    playerDeaths:0,
+    playerDeaths: 0,
     actions: []
   };
   idleDamage = () => {
@@ -30,20 +30,20 @@ class GameContainer extends Component {
     ...items.slice(index + 1, items.length)];
   };
   attack = dmg => {
-    let playerFullDmg =dmg + Math.ceil((this.state.enemiesKilled*1.5)+(this.state.playerDeaths*0.5))
-    let enemyFullDmg = Math.ceil(this.state.enemyDamage+(this.state.enemiesKilled*0.4)+(this.state.playerDeaths*0.4))
-    if(this.state.enemiesKilled>=10&&this.state.enemiesKilled % 5 === 0){
-      enemyFullDmg=Math.ceil(enemyFullDmg*2)
+    let playerFullDmg = dmg + Math.ceil((this.state.enemiesKilled * 1.5) + (this.state.playerDeaths * 0.5))
+    let enemyFullDmg = Math.ceil(this.state.enemyDamage + (this.state.enemiesKilled * 0.4) + (this.state.playerDeaths * 0.4))
+    if (this.state.enemiesKilled >= 10 && this.state.enemiesKilled % 5 === 0) {
+      enemyFullDmg = Math.ceil(enemyFullDmg * 2)
     }
     this.setState({ enemyHealth: this.state.enemyHealth - playerFullDmg, playerHealth: this.state.playerHealth - enemyFullDmg, actions: [...this.state.actions, `|| Attacked enemy for ${playerFullDmg}, Enemy hit you for ${enemyFullDmg}`] })
     if (this.state.enemyHealth <= playerFullDmg) {
-      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 10),playerHealth: this.state.playerHealth+((this.state.enemiesKilled+1)*5), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
+      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 10), playerHealth: this.state.playerHealth + ((this.state.enemiesKilled + 1) * 5), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
       console.log(this.state.playerHealth, this.state.enemyHealth)
       enemy()
     }
     if (this.state.playerHealth <= enemyFullDmg) {
       console.log(this.state.playerHealth, this.state.enemyDamage)
-      this.setState({enemyHealth: 100+(this.state.enemiesKilled * 10),playerHealth:50+(this.state.enemiesKilled*5), playerDeaths: this.state.playerDeaths+1, actions:[...this.state.actions, '||The Enemy Killed you!']})
+      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 10), playerHealth: 50 + (this.state.enemiesKilled * 5), playerDeaths: this.state.playerDeaths + 1, actions: [...this.state.actions, '||The Enemy Killed you!'] })
     }
     if (this.state.actions.length > 4) {
       this.setState({ actions: this.remove(this.state.actions, 0) })
@@ -52,13 +52,18 @@ class GameContainer extends Component {
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
+
+  returnState = () => {
+    return this.state;
+  };
+
   renderPage = () => {
     switch (this.state.currentPage) {
       case "Game":
         return <Game
           actions={this.state.actions}
           playerHealth={this.state.playerHealth}
-          playerDeaths = {this.state.playerDeaths}
+          playerDeaths={this.state.playerDeaths}
           enemiesKilled={this.state.enemiesKilled}
           enemyHealth={this.state.enemyHealth}
           attack={this.attack} />
@@ -87,4 +92,8 @@ class GameContainer extends Component {
   }
 }
 
-export default GameContainer
+
+export default GameContainer;
+
+
+

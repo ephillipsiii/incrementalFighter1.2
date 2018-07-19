@@ -5,10 +5,11 @@ import GameContainer from './components/GameContainer';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+        <div className="App">
           <h1 className="App-title">Incremental Fighter</h1>
-        <GameContainer />
-      </div>
+          <GameContainer ref={(GameContainer) => { window.GameContainer = GameContainer }} />
+        </div>
+
     );
   }
 }

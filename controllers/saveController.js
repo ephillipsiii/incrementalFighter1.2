@@ -2,17 +2,19 @@ const db = require("../models");
 
 module.exports = {
     save: function (req, res) {
+        console.log("save ping");
         db.Save
-            .remove({})
-            .create(req.body)
-            .then(() => db.Save.collection.insert(req))
-            .catch(err => res.status(422).json(err));
-    },
-    load: function(req, res) {
-        db.Save
-        .then(() => db.Save.collection.find({"index": 1}))
+        .create(req.body)
         .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        .catch (err => res.status(422).json(err));
+    },
+    load: function (req, res) {
+        console.log("load ping");
+        db.Save
+        .find()
+            .then(() => db.Save.collection.find())
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
     }
 };
 
