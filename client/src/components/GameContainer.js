@@ -16,6 +16,11 @@ class GameContainer extends Component {
     playerDeaths: 0,
     actions: []
   };
+
+componentDidMount(){
+  console.log(this.state);
+}
+
   idleDamage = () => {
     let dpsOn = setTimeout(() => {
       let dps = this.state.damagePerSecond

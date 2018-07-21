@@ -11,8 +11,7 @@ module.exports = {
     load: function (req, res) {
         console.log("load ping");
         db.Save
-        .find()
-            .then(() => db.Save.collection.find())
+        .find(req.query)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }

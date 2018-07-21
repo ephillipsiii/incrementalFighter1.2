@@ -6,6 +6,8 @@ import API from "../../utils/API";
 
 
 class Contact extends Component {
+
+
     Save() {
         API.saveGame({
             enemyHealth: window.GameContainer.state.enemyHealth,
@@ -18,14 +20,26 @@ class Contact extends Component {
             console.log(response);
         })
         .catch(err => console.log(err));
-        alert(window.GameContainer.state.enemyHealth);
+        alert("Game Saved!");
     };
 
     Load() {
         API.loadGame()
-        .then(res =>
-        window.GameContainer.setState(res.data)
-        )
+        .then(res => {
+            // console.log(res.data[res.data.length - 1])
+            let lastSave = res.data[res.data.length - 1];
+            window.GameContainer.setState({
+                currentPage:"Game",
+                enemyHealth: lastSave.enemyHealth,
+                enemyDamage: lastSave.enemyDamage,
+                playerHealth: lastSave.playerHealth,
+                enemiesKilled: lastSave.enemiesKilled,
+                playerDeaths: lastSave.playerDeaths
+            })
+        })
+        .then(window.GameContainer.render())
+        .catch(err => console.log(err));
+        
     };
 
 
