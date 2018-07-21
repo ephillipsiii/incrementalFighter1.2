@@ -7,10 +7,9 @@ class App extends Component {
     return (
       <div className="App">
           <h1 className="App-title">Incremental Fighter</h1>
-        <GameContainer />
+        <GameContainer  ref={(GameContainer)=>{window.GameContainer = GameContainer}}/>
       </div>
     );
   }
 }
-
 export default App;

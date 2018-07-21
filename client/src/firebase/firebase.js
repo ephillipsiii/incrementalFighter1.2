@@ -11,5 +11,7 @@ const config = {
     messagingSenderId: "726120650832"
   };
 firebase.initializeApp(config);
-export default firebase;
+export const database = firebase.database();
+export const auth = firebase.auth();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 // </script>

@@ -18,7 +18,8 @@ const gear = props => (
         <br />
         <div>
             <p>
-                You've killed {props.enemiesKilled} enemies, giving your weapon {props.enemiesKilled * 1.5} bonus damage.
+                You've killed {props.enemiesKilled} enemies, giving your weapon {Math.ceil(props.enemiesKilled * 1.3)} bonus damage.
+                Killing Bosses gives you defense. You have {props.bossesBeat*0.5} defense.
                 Your deaths grant you mercy... Gain {props.playerDeaths * 0.5} donus damage.
             </p>
         </div>
