@@ -14,10 +14,10 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <h1 className="App-title">Incremental Fighter</h1>
-        <GameContainer ref={(GameContainer) => { window.GameContainer = GameContainer }} />
-      </div>
+        <div className="App">
+          <h1 className="App-title">Incremental Fighter</h1>
+          <GameContainer ref={(GameContainer) => { window.GameContainer = GameContainer }} />
+        </div>
     );
   }
 }

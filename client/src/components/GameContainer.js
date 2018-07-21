@@ -61,7 +61,7 @@ class GameContainer extends Component {
         return <Game
           actions={this.state.actions}
           playerHealth={this.state.playerHealth}
-          playerDeaths = {this.state.playerDeaths}
+          playerDeaths={this.state.playerDeaths}
           enemiesKilled={this.state.enemiesKilled}
           bossesBeat={this.state.bossesBeat}
           enemyHealth={this.state.enemyHealth}
