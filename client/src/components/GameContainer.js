@@ -6,6 +6,7 @@ import Contact from './pages/contact'
 import { Gear } from './pages/gear'
 import Stats from './pages/stats'
 
+
 class GameContainer extends Component {
   state = {
     currentPage: "Game",
@@ -93,6 +94,3 @@ class GameContainer extends Component {
 
 
 export default GameContainer;
-
-
-
