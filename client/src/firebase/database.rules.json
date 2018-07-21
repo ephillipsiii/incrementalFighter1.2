@@ -1,6 +1,10 @@
 {
-  "rules": {
-    ".read": true,
-    ".write": true
+    "rules": {
+      "posts": {
+         "$uid": {
+           ".read": "$uid === auth.uid",
+           ".write": "$uid === auth.uid"
+         }
+       }
+     }
   }
-}

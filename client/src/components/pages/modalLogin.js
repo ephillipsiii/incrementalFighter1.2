@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactModalLogin from 'react-modal-login';
  
-import {facebookConfig, googleConfig} from "../authentication/social-config";
+import {facebookConfig, googleConfig} from "../../authentication/social-config";
  
-const modalLogin = props => (
-class Sample extends React.Component {
+class ModalLogin extends React.Component {
  
   constructor(props) {
     super(props);
@@ -68,7 +67,7 @@ class Sample extends React.Component {
         <button
           onClick={() => this.openModal()}
         >
-          Open Modal
+          Login
         </button>
  
         <ReactModalLogin
@@ -106,5 +105,5 @@ class Sample extends React.Component {
     )
   }
 }
-)
-export default modalLogin;
+
+export default ModalLogin;
