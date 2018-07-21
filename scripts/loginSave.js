@@ -6,24 +6,21 @@ mongoose.connect(
     "mongodb://localhost/incDatabase"
 );
 
-const testPerson = [
-    {
-        name: "Ed",
-        damagepersecond: 1,
-        enemieskilled: 1
-    },
-    {
-        name: "Matt",
-        damagepersecond: 2,
-        enemieskilled: 2
-    }
-];
+const loginSave = {
+    enemyHealth: 100,
+    enemyDamage: 0,
+    playerHealth: 100,
+    enemiesKilled: 0,
+    playerDeaths: 0
+    };
+
+
 
 db.Save
     .remove({})
-    .then(() => db.Save.collection.insertMany(testPerson))
+    .then(() => db.Save.collection.insert(loginSave))
     .then(data => {
-        console.log("--All consumable data inserted!--");
+        console.log("--Start Progress Saved!--");
         process.exit(0);
     })
     .catch(err => {

@@ -4,11 +4,16 @@ import {imageSrc} from '../../images/enemyPool.js'
 import floor from '../../images/tomb_1_old.png'
 import { mainWeapon } from './gear'
 
+import ModalLogin from "./modalLogin.js";
+
 const Game = props => (
+
+   
     
     <div style={{
         backgroundImage: `url(${floor})`
     }}>
+     <ModalLogin />
         <div
             style={{}}
         >
@@ -32,8 +37,8 @@ const Game = props => (
                 color: 'white',
                 textAlign: 'left',
                 margin: 0
-            }}
-            >PLayer Deaths: {props.playerDeaths}</p>
+            }} id='playerDeaths'>
+            >Player Deaths: {props.playerDeaths}</p>
         </div>
         <div
             style={{
@@ -55,23 +60,23 @@ const Game = props => (
                 <p style={{
                     color: 'white',
                     textAlign: 'left'
-                }}>Action Log</p>
+                }}id='actionLog'>Action Log</p>
                 <p style={{
                     color: 'white'
-                }}>
+                }}>     
                 {props.actions}</p>
                     <p style={{
                         position:'fixed',
                         left:0,
                         bottom: 100
-                    }}>{props.playerHealth}</p>
+                    }}id='playerHealth' >{props.playerHealth}</p>
                     <img src={player} alt='Player' style={{
                         position: 'fixed',
                         left: 0,
                         bottom: 0,
                         width: '100px',
                         height: '100px',
-                    }} />
+                    }} id ='player' />
                 </div>
             </div>
 
@@ -82,15 +87,15 @@ const Game = props => (
                 top:100,
                 right: 0,
                 backgroundImage: `url(${floor})`
-            }}>
-            <p style={{color:'white'}}>Click on the enemy to attack! --></p>
+            }} id = 'enemyDiv'>
+            <p style={{color:'white'}} id='enemyClick'>Click on the enemy to attack! --></p>
                 <div
                     style={{
                     }}>
                     <p style={{
                         textAlign: 'right',
                         color: 'white'
-                    }}>{props.enemyHealth}</p>
+                    }} id ='enemyHealth' >{props.enemyHealth}</p>
                     <img src={imageSrc} alt='Enemy' style={{
                         position: 'fixed',
                         right: 0,
@@ -98,7 +103,7 @@ const Game = props => (
                         width: '100px'
                     }}
                         onClick={() => props.attack(mainWeapon.dmg)}
-
+                        id = 'enemy'
 
                     />
 

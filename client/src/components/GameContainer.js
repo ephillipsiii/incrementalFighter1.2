@@ -6,6 +6,7 @@ import Contact from './pages/contact'
 import { Gear } from './pages/gear'
 import Stats from './pages/stats'
 
+
 class GameContainer extends Component {
   state = {
     currentPage: "Game",
@@ -62,7 +63,7 @@ class GameContainer extends Component {
         return <Game
           actions={this.state.actions}
           playerHealth={this.state.playerHealth}
-          playerDeaths = {this.state.playerDeaths}
+          playerDeaths={this.state.playerDeaths}
           enemiesKilled={this.state.enemiesKilled}
           bossesBeat={this.state.bossesBeat}
           enemyHealth={this.state.enemyHealth}
@@ -93,4 +94,5 @@ class GameContainer extends Component {
   }
 }
 
-export default GameContainer
+
+export default GameContainer;
