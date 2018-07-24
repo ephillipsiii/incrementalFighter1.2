@@ -4,8 +4,6 @@ import {imageSrc} from '../../images/enemyPool.js'
 import floor from '../../images/tomb_1_old.png'
 import { mainWeapon } from './gear'
 
-import ModalLogin from "./modalLogin.js";
-
 const Game = props => (
 
    
@@ -13,10 +11,8 @@ const Game = props => (
     <div style={{
         backgroundImage: `url(${floor})`
     }}>
-     <ModalLogin />
         <div
-            style={{}}
-        >
+            style={{}} >
 
             <p style={{
                 color: 'white',
@@ -30,7 +26,7 @@ const Game = props => (
                 textAlign: 'left',
                 margin: 0
             }}
-                id='killCount'>
+                id='bossesBeaten'>
                 Bosses Beaten: {props.bossesBeat}
             </p>
             <p style={{

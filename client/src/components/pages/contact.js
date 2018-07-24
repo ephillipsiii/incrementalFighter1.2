@@ -113,7 +113,7 @@ class Contact extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{height:500}}>
                 Links to repo, Linkedin pages?
                 <div>
                     <button onClick={this.Save}>
