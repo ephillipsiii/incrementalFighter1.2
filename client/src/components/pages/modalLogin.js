@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactModalLogin from 'react-modal-login';
- 
-import {facebookConfig, googleConfig} from "../../authentication/social-config";
- 
+// import ReactModalLogin from 'react-modal-login';
+// import {facebookConfig, googleConfig} from "../../authentication/social-config";
+import firebase, { auth, provider } from '../../firebase/firebase';
+
 class ModalLogin extends React.Component {
  
   constructor(props) {
@@ -13,7 +13,29 @@ class ModalLogin extends React.Component {
       loading: false,
       error: null
     };
+
+    this.login = this.login.bind(this); // <-- add this line
+    this.logout = this.logout.bind(this); // <-- add this line
  
+  }
+
+  logout() {
+    auth.signOut()
+      .then(() => {
+        this.setState({
+          user: null
+        });
+      });
+  }
+
+  login() {
+    auth.signInWithPopup(provider) 
+      .then((result) => {
+        const user = result.user;
+        this.setState({
+          user
+        });
+      });
   }
  
   openModal() {
@@ -64,13 +86,13 @@ class ModalLogin extends React.Component {
     return (
       <div>
  
-        <button
-          onClick={() => this.openModal()}
-        >
-          Login
-        </button>
+        {this.state.user ?
+          <button onClick={this.logout}>Log Out</button>                
+          :
+          <button onClick={this.login}>Log In</button>              
+        }
  
-        <ReactModalLogin
+        {/* <ReactModalLogin
           visible={this.state.showModal}
           onCloseModal={this.closeModal.bind(this)}
           loading={this.state.loading}
@@ -99,7 +121,7 @@ class ModalLogin extends React.Component {
               onLoginFail: this.onLoginFail.bind(this),
               label: "Continue with Google"
             }
-          }}
+          }} */}
         />
       </div>
     )
