@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactModalLogin from 'react-modal-login';
 // import {facebookConfig, googleConfig} from "../../authentication/social-config";
-import firebase, { auth, provider } from '../../firebase/firebase';
+import { auth, provider } from '../../firebase/firebase';
 
 class ModalLogin extends React.Component {
  

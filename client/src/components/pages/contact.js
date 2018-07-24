@@ -2,59 +2,129 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 
 
-// ACCESS DATA FROM GAME CONTAINER SOMEHOW
-
-
 class Contact extends Component {
 
+    consoleLog() {
+        console.log(window.ModalLogin.state.user.email);
+    }
 
     Save() {
-        API.saveGame({
+
+
+        if (window.ModalLogin.state.user === undefined) {
+
+            alert("Please log in to access the save function");
+
+        }
+        else {
+
+            API.saveGame({
+                email: window.ModalLogin.state.user.email,
+                enemyHealth: window.GameContainer.state.enemyHealth,
+                enemyDamage: window.GameContainer.state.enemyDamage,
+                playerHealth: window.GameContainer.state.playerHealth,
+                enemiesKilled: window.GameContainer.state.enemiesKilled,
+                playerDeaths: window.GameContainer.state.playerDeaths,
+                bossesBeat: window.GameContainer.state.bossesBeat
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => console.log(err));
+            alert("Game Saved!");
+        }
+
+
+    };
+
+
+
+    Load() {
+        if (window.ModalLogin.state.user === undefined) {
+
+            alert("Please log in to access the load function");
+
+        }
+        else {
+            API.loadGame(window.ModalLogin.state.user.email)
+                .then(res => {
+
+                    let lastSave = res.data
+
+                    if (res.data.length > 1) {
+
+                        lastSave = res.data[res.data.length - 1]
+
+                        window.GameContainer.setState({
+                            currentPage: "Game",
+                            enemyHealth: lastSave.enemyHealth,
+                            enemyDamage: lastSave.enemyDamage,
+                            playerHealth: lastSave.playerHealth,
+                            enemiesKilled: lastSave.enemiesKilled,
+                            playerDeaths: lastSave.playerDeaths,
+                            bossesBeat: lastSave.bossesBeat
+                        })
+                    } 
+                    else {
+                        window.GameContainer.setState({
+                            currentPage: "Game",
+                            enemyHealth: lastSave.enemyHealth,
+                            enemyDamage: lastSave.enemyDamage,
+                            playerHealth: lastSave.playerHealth,
+                            enemiesKilled: lastSave.enemiesKilled,
+                            playerDeaths: lastSave.playerDeaths,
+                            bossesBeat: lastSave.bossesBeat
+                        })
+                    };
+                })
+                .then(window.GameContainer.render())
+                .catch(err => console.log(err));
+            alert("Game Loaded! \n THIS WILL RESET THE OPPONENT IMAGES!")
+        }
+
+    };
+
+    sessionSave() {
+        localStorage.setItem("save", JSON.stringify({
             enemyHealth: window.GameContainer.state.enemyHealth,
             enemyDamage: window.GameContainer.state.enemyDamage,
             playerHealth: window.GameContainer.state.playerHealth,
             enemiesKilled: window.GameContainer.state.enemiesKilled,
             playerDeaths: window.GameContainer.state.playerDeaths,
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(err => console.log(err));
-        alert("Game Saved!");
-    };
+            bossesBeat: window.GameContainer.state.bossesBeat
+        }));
+    }
 
-    Load() {
-        API.loadGame()
-        .then(res => {
-            // console.log(res.data[res.data.length - 1])
-            let lastSave = res.data[res.data.length - 1];
-            window.GameContainer.setState({
-                currentPage:"Game",
-                enemyHealth: lastSave.enemyHealth,
-                enemyDamage: lastSave.enemyDamage,
-                playerHealth: lastSave.playerHealth,
-                enemiesKilled: lastSave.enemiesKilled,
-                playerDeaths: lastSave.playerDeaths
-            })
-        })
-        .then(window.GameContainer.render())
-        .catch(err => console.log(err));
-        
+    sessionLoad() {
+        let data = localStorage.getItem("save");
+        let lastSave = JSON.parse(data);
+        window.GameContainer.setState({
+            currentPage: "Game",
+            enemyHealth: lastSave.enemyHealth,
+            enemyDamage: lastSave.enemyDamage,
+            playerHealth: lastSave.playerHealth,
+            enemiesKilled: lastSave.enemiesKilled,
+            playerDeaths: lastSave.playerDeaths
+        });
+        window.GameContainer.render();
     };
 
 
 
     render() {
         return (
-            <div>
+            <div style={{height:500}}>
                 Links to repo, Linkedin pages?
-        <div>
+                <div>
                     <button onClick={this.Save}>
                         SAVE
-            </button>
+                    </button>
                     <button onClick={this.Load}>
                         LOAD
-            </button>
+                    </button>
+                    {/* <button onClick={this.consoleLog}>
+                        CONSOLE LOG
+                    </button> */}
                 </div>
             </div>
         )

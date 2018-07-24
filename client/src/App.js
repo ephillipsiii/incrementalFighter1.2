@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GameContainer from './components/GameContainer';
-import ReactAudioPlayer from 'react-audio-player';
+import ModalLogin from './components/pages/modalLogin';
 
 class App extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class App extends Component {
         <div className="App">
           <h1 className="App-title">Incremental Fighter</h1>
           <GameContainer ref={(GameContainer) => { window.GameContainer = GameContainer }} />
-          <ReactAudioPlayer />
+          <ModalLogin ref={(ModalLogin) => { window.ModalLogin = ModalLogin }} />
         </div>
     );
   }

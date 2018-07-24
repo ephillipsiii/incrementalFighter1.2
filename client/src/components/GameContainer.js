@@ -24,26 +24,25 @@ class GameContainer extends Component {
     ...items.slice(index + 1, items.length)];
   };
   attack = dmg => {
-    let playerFullDmg =dmg + Math.ceil((this.state.enemiesKilled*1.1)+(this.state.playerDeaths*0.25))
-    let enemyFullDmg = Math.floor((this.state.enemyDamage)+(this.state.enemiesKilled*.3)-(this.state.bossesBeat*.5))
-    if(this.state.enemiesKilled>=5)
+    let playerFullDmg =dmg + Math.ceil(this.state.enemiesKilled*2)
+    let enemyMinDmg = Math.floor(((this.state.enemyDamage+Math.floor(this.state.enemiesKilled*0.5))+(this.state.playerDeaths*0.5))-(Math.floor(this.state.bossesBeat*0.5)))
+    let enemyFullDmg = Math.floor(Math.random()*(enemyMinDmg*1.1)+enemyMinDmg)
     if(this.state.enemiesKilled>=5&&this.state.enemiesKilled % 5 === 0){
-      console.log(this.state.bossFight)
-      this.setState({bossFight:true,actions:[...this.state.actions, `||BOSS FIGHT||`]})
-      enemyFullDmg=Math.floor(enemyFullDmg*1.55)
+      this.setState({bossFight:true})
+      enemyFullDmg=Math.ceil(enemyFullDmg*1.5)
     }
     this.setState({ enemyHealth: this.state.enemyHealth - playerFullDmg, playerHealth: this.state.playerHealth - enemyFullDmg, actions: [...this.state.actions, `|| Attacked enemy for ${playerFullDmg}, Enemy hit you for ${enemyFullDmg}`] })
     if (this.state.enemyHealth <= playerFullDmg) {
-      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 7), enemiesKilled: this.state.enemiesKilled + 1, actions: [...this.state.actions, `|| Killed the Enemy!`] })
-      console.log(this.state.playerHealth, this.state.enemyHealth)
+      this.setState({ enemiesKilled: this.state.enemiesKilled + 1})
+      this.setState({ enemyHealth: 100 + (this.state.enemiesKilled * 5),playerHealth: 50+(Math.ceil(this.state.enemiesKilled*2)), actions: [...this.state.actions, `|| Killed the Enemy!`] })
       enemy()
       if(this.state.bossFight===true){
         this.setState({bossFight:false, bossesBeat:this.state.bossesBeat+1})
       }
     }
     if (this.state.playerHealth <= enemyFullDmg) {
-      console.log(this.state.playerHealth, this.state.enemyDamage)
-      this.setState({enemyHealth: 100+(this.state.enemiesKilled * 10),playerHealth:50+((this.state.enemiesKilled+1)*2.5), playerDeaths: this.state.playerDeaths+1, actions:[...this.state.actions, '||The Enemy Killed you!']})
+      this.setState({playerDeaths: this.state.playerDeaths+1})
+      this.setState({enemyHealth: 100+(this.state.enemiesKilled * 5),playerHealth:50+(Math.ceil(this.state.enemiesKilled*2))+(Math.ceil(this.state.playerDeaths*5)), actions:[...this.state.actions, '||The Enemy Killed you!']})
     }
     if (this.state.actions.length >= 5) {
       this.setState({ actions: this.remove(this.state.actions, 0) })

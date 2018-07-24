@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    loadGame: function() {
-        return axios.get("/api/saves");
+    loadGame: function(query) {
+        return axios.get("/api/saves", { params: { q: query } });
     },
     saveGame: function(saveData) {
         return axios.post("/api/saves", saveData);
