@@ -79,7 +79,7 @@ class Contact extends Component {
                 })
                 .then(window.GameContainer.render())
                 .catch(err => console.log(err));
-            alert("Game Loaded!")
+            alert("Game Loaded! \n THIS WILL RESET THE OPPONENT IMAGES!")
         }
 
     };
@@ -107,7 +107,7 @@ class Contact extends Component {
             playerDeaths: lastSave.playerDeaths
         });
         window.GameContainer.render();
-  };
+    };
 
 
 
@@ -122,9 +122,9 @@ class Contact extends Component {
                     <button onClick={this.Load}>
                         LOAD
                     </button>
-//                     <button onClick={this.consoleLog}>
-//                         CONSOLE LOG
-//                     </button>
+                    {/* <button onClick={this.consoleLog}>
+                        CONSOLE LOG
+                    </button> */}
                 </div>
             </div>
         )
