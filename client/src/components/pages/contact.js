@@ -107,13 +107,13 @@ class Contact extends Component {
             playerDeaths: lastSave.playerDeaths
         });
         window.GameContainer.render();
-    };
+  };
 
 
 
     render() {
         return (
-            <div>
+            <div style={{height:500}}>
                 Links to repo, Linkedin pages?
                 <div>
                     <button onClick={this.Save}>
@@ -122,9 +122,9 @@ class Contact extends Component {
                     <button onClick={this.Load}>
                         LOAD
                     </button>
-                    <button onClick={this.consoleLog}>
-                        CONSOLE LOG
-                    </button>
+//                     <button onClick={this.consoleLog}>
+//                         CONSOLE LOG
+//                     </button>
                 </div>
             </div>
         )
