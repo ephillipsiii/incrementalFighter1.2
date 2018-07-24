@@ -7,6 +7,7 @@ mongoose.connect(
 );
 
 const loginSave = {
+    name: "Matt",
     enemyHealth: 100,
     enemyDamage: 0,
     playerHealth: 100,

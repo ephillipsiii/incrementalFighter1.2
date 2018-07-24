@@ -10,6 +10,7 @@ const facebook = {
     client_id: 'YOUR GOOGLE APP ID GOES HERE',
     scope: "https://www.googleapis.com/auth/plus.login"
   };
-
-  export const facebookConfig = facebook;
-  export const googleConfig = google;
+module.exports = {
+  facebookConfig: facebook,
+  googleConfig: google
+}
