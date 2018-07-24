@@ -121,8 +121,8 @@ class ModalLogin extends React.Component {
               onLoginFail: this.onLoginFail.bind(this),
               label: "Continue with Google"
             }
-          }} */}
-      </div>
+          }} */} 
+      </div> 
     )
   }
 }
