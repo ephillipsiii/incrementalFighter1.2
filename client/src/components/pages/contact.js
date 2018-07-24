@@ -16,37 +16,37 @@ class Contact extends Component {
             enemiesKilled: window.GameContainer.state.enemiesKilled,
             playerDeaths: window.GameContainer.state.playerDeaths,
         })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(err => console.log(err));
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => console.log(err));
         alert("Game Saved!");
     };
 
     Load() {
         API.loadGame()
-        .then(res => {
-            // console.log(res.data[res.data.length - 1])
-            let lastSave = res.data[res.data.length - 1];
-            window.GameContainer.setState({
-                currentPage:"Game",
-                enemyHealth: lastSave.enemyHealth,
-                enemyDamage: lastSave.enemyDamage,
-                playerHealth: lastSave.playerHealth,
-                enemiesKilled: lastSave.enemiesKilled,
-                playerDeaths: lastSave.playerDeaths
+            .then(res => {
+                // console.log(res.data[res.data.length - 1])
+                let lastSave = res.data[res.data.length - 1];
+                window.GameContainer.setState({
+                    currentPage: "Game",
+                    enemyHealth: lastSave.enemyHealth,
+                    enemyDamage: lastSave.enemyDamage,
+                    playerHealth: lastSave.playerHealth,
+                    enemiesKilled: lastSave.enemiesKilled,
+                    playerDeaths: lastSave.playerDeaths
+                })
             })
-        })
-        .then(window.GameContainer.render())
-        .catch(err => console.log(err));
-        
+            .then(window.GameContainer.render())
+            .catch(err => console.log(err));
+
     };
 
 
 
     render() {
         return (
-            <div>
+            <div style={{height:500}}>
                 Links to repo, Linkedin pages?
         <div>
                     <button onClick={this.Save}>

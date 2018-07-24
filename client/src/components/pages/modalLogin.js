@@ -122,7 +122,6 @@ class ModalLogin extends React.Component {
               label: "Continue with Google"
             }
           }} */}
-        />
       </div>
     )
   }

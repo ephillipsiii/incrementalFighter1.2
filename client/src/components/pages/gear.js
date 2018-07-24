@@ -4,7 +4,7 @@ import player from '../../images/gargoyle_male.png'
 
 const gear = props => (
     <div style={{
-        height: '100%'
+        height: 500
     }}>
         Check out your gear, and switch out items
         <br />
@@ -18,7 +18,7 @@ const gear = props => (
         <br />
         <div>
             <p>
-                You've killed {props.enemiesKilled} enemies, giving your weapon {Math.ceil(props.enemiesKilled * 1.3)} bonus damage.
+                You've killed {props.enemiesKilled} enemies, giving your weapon {Math.ceil(props.enemiesKilled * 2)} bonus damage.
                 Killing Bosses gives you defense. You have {props.bossesBeat*0.5} defense.
             </p>
         </div>
