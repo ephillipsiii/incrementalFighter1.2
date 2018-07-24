@@ -116,10 +116,10 @@ class Contact extends Component {
             <div style={{height:500}}>
                 Links to repo, Linkedin pages?
                 <div>
-                    <button onClick={this.Save}>
+                    <button onClick={this.Save} id = 'saveButton' >
                         SAVE
                     </button>
-                    <button onClick={this.Load}>
+                    <button onClick={this.Load} id = 'loadButton' >
                         LOAD
                     </button>
                     {/* <button onClick={this.consoleLog}>
