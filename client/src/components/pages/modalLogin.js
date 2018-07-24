@@ -87,9 +87,9 @@ class ModalLogin extends React.Component {
       <div>
  
         {this.state.user ?
-          <button onClick={this.logout}>Log Out</button>                
+          <button onClick={this.logout} id ='buttonOut' >Log Out</button>                
           :
-          <button onClick={this.login}>Log In</button>              
+          <button onClick={this.login} id ='buttonIn' >Log In</button>              
         }
  
         {/* <ReactModalLogin
@@ -121,9 +121,8 @@ class ModalLogin extends React.Component {
               onLoginFail: this.onLoginFail.bind(this),
               label: "Continue with Google"
             }
-          }} */}
-        />
-      </div>
+          }} */} 
+      </div> 
     )
   }
 }
