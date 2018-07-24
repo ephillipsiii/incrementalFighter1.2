@@ -1,28 +1,25 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-const Login = require("../../authentication/social-config");
 
-let id = 'no id'
-        if ((Login.facebookConfig.appId === 'YOUR FB APP ID GOES HERE') && (Login.googleConfig.client_id === 'YOUR GOOGLE APP ID GOES HERE')) {
-            id = 'no id'
-        }
-        else if (Login.facebookConfig.appId === 'YOUR FB APP ID GOES HERE') {
-            id = Login.googleConfig.client_id
-        }
-        else if (Login.googleConfig.client_id === 'YOUR GOOGLE APP ID GOES HERE') {
-            id = Login.facebookConfig.appId;
-        };
-        console.log(id)
 
 class Contact extends Component {
 
-
+    consoleLog() {
+        console.log(window.ModalLogin.state.user.email);
+    }
 
     Save() {
-        if (id !== 'no id') {
-            console.log("id: " + id);
+
+
+        if (window.ModalLogin.state.user === undefined) {
+
+            alert("Please log in to access the save function");
+
+        }
+        else {
+
             API.saveGame({
-                name: id,
+                email: window.ModalLogin.state.user.email,
                 enemyHealth: window.GameContainer.state.enemyHealth,
                 enemyDamage: window.GameContainer.state.enemyDamage,
                 playerHealth: window.GameContainer.state.playerHealth,
@@ -35,10 +32,56 @@ class Contact extends Component {
                 })
                 .catch(err => console.log(err));
             alert("Game Saved!");
-        } 
-        else if(id === 'no id') { 
-            alert("Please Login to access the save features");
         }
+
+
+    };
+
+
+
+    Load() {
+        if (window.ModalLogin.state.user === undefined) {
+
+            alert("Please log in to access the load function");
+
+        }
+        else {
+            API.loadGame(window.ModalLogin.state.user.email)
+                .then(res => {
+
+                    let lastSave = res.data
+
+                    if (res.data.length > 1) {
+
+                        lastSave = res.data[res.data.length - 1]
+
+                        window.GameContainer.setState({
+                            currentPage: "Game",
+                            enemyHealth: lastSave.enemyHealth,
+                            enemyDamage: lastSave.enemyDamage,
+                            playerHealth: lastSave.playerHealth,
+                            enemiesKilled: lastSave.enemiesKilled,
+                            playerDeaths: lastSave.playerDeaths,
+                            bossesBeat: lastSave.bossesBeat
+                        })
+                    } 
+                    else {
+                        window.GameContainer.setState({
+                            currentPage: "Game",
+                            enemyHealth: lastSave.enemyHealth,
+                            enemyDamage: lastSave.enemyDamage,
+                            playerHealth: lastSave.playerHealth,
+                            enemiesKilled: lastSave.enemiesKilled,
+                            playerDeaths: lastSave.playerDeaths,
+                            bossesBeat: lastSave.bossesBeat
+                        })
+                    };
+                })
+                .then(window.GameContainer.render())
+                .catch(err => console.log(err));
+            alert("Game Loaded!")
+        }
+
     };
 
     sessionSave() {
@@ -51,26 +94,6 @@ class Contact extends Component {
             bossesBeat: window.GameContainer.state.bossesBeat
         }));
     }
-
-    Load() {
-        API.loadGame({name: id})
-            .then(res => {
-                console.log(res.data)
-                let lastSave = res.data;
-                window.GameContainer.setState({
-                    currentPage: "Game",
-                    enemyHealth: lastSave.enemyHealth,
-                    enemyDamage: lastSave.enemyDamage,
-                    playerHealth: lastSave.playerHealth,
-                    enemiesKilled: lastSave.enemiesKilled,
-                    playerDeaths: lastSave.playerDeaths,
-                    bossesBeat: lastSave.bossesBeat
-                })
-            })
-            .then(window.GameContainer.render())
-            .catch(err => console.log(err));
-
-    };
 
     sessionLoad() {
         let data = localStorage.getItem("save");
@@ -92,13 +115,16 @@ class Contact extends Component {
         return (
             <div>
                 Links to repo, Linkedin pages?
-        <div>
+                <div>
                     <button onClick={this.Save}>
                         SAVE
-            </button>
+                    </button>
                     <button onClick={this.Load}>
                         LOAD
-            </button>
+                    </button>
+                    <button onClick={this.consoleLog}>
+                        CONSOLE LOG
+                    </button>
                 </div>
             </div>
         )

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const saveSchema = new Schema({
-    name: {type: String},
+    email: {type: String},
     enemyHealth: {type: Number},
     enemyDamage: {type: Number},
     playerHealth: {type: Number},
