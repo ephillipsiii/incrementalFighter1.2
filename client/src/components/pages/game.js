@@ -15,8 +15,7 @@ const Game = props => (
     }}>
      <ModalLogin />
         <div
-            style={{}}
-        >
+            style={{}} >
 
             <p style={{
                 color: 'white',
@@ -30,7 +29,7 @@ const Game = props => (
                 textAlign: 'left',
                 margin: 0
             }}
-                id='killCount'>
+                id='bossesBeaten'>
                 Bosses Beaten: {props.bossesBeat}
             </p>
             <p style={{
