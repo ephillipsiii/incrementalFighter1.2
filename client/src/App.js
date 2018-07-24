@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GameContainer from './components/GameContainer';
+import ReactAudioPlayer from 'react-audio-player';
 
 class App extends Component {
   constructor() {
@@ -17,6 +18,7 @@ class App extends Component {
         <div className="App">
           <h1 className="App-title">Incremental Fighter</h1>
           <GameContainer ref={(GameContainer) => { window.GameContainer = GameContainer }} />
+          <ReactAudioPlayer />
         </div>
     );
   }

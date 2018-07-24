@@ -1,4 +1,6 @@
 import React from "react";
+import ReactAudioPlayer from 'react-audio-player';
+import chiptune from '../music/Chiptune_Nobility.mp3';
 
 const NavTabs = props => (
   <ul className="nav nav-tabs">
@@ -42,6 +44,7 @@ const NavTabs = props => (
         Contact
       </a>
     </li>
+    <ReactAudioPlayer src={chiptune} autoPlay loop controls/>
   </ul>
 );
 
