@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/incDatabase");
+mongoose.connect(process.env.MONGODB_PURPLE_URI || "mongodb://localhost/incDatabase");
 
 // Start the API server
 app.listen(PORT, function() {
