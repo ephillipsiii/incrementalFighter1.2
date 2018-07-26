@@ -51,10 +51,6 @@ class Contact extends Component {
 
                     let lastSave = res.data
 
-                    if (res.data.length > 1) {
-
-                        lastSave = res.data[res.data.length - 1]
-
                         window.GameContainer.setState({
                             currentPage: "Game",
                             enemyHealth: lastSave.enemyHealth,
@@ -64,18 +60,6 @@ class Contact extends Component {
                             playerDeaths: lastSave.playerDeaths,
                             bossesBeat: lastSave.bossesBeat
                         })
-                    } 
-                    else {
-                        window.GameContainer.setState({
-                            currentPage: "Game",
-                            enemyHealth: lastSave.enemyHealth,
-                            enemyDamage: lastSave.enemyDamage,
-                            playerHealth: lastSave.playerHealth,
-                            enemiesKilled: lastSave.enemiesKilled,
-                            playerDeaths: lastSave.playerDeaths,
-                            bossesBeat: lastSave.bossesBeat
-                        })
-                    };
                 })
                 .then(window.GameContainer.render())
                 .catch(err => console.log(err));

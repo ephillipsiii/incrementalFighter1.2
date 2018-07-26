@@ -9,15 +9,15 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+};
 
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/incDatabase");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://luckybaldrick:mk2052424@ds249311.mlab.com:49311/incdatabase");
 
 // Start the API server
 app.listen(PORT, function() {
