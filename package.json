@@ -21,9 +21,10 @@
     "react-router-dom": "^4.1.2"
   },
   "scripts": {
-    "start": "yarn seed && concurrently \"yarn start:prod\" \"cd client && yarn start\"",
+    "start": "node server.js",
+    "heroku-prebuild": "rm -rf public/ && mkdir public",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "start:prod": "nodemon server.js",
-    "build": "yarn seed && cd client && yarn build",
     "seed": "node scripts/seedDB.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
