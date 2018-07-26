@@ -95,3 +95,11 @@ ul.nav.nav-tabs{
   padding-left: 20px;
   width: 50%
 }
+
+#saveButton{
+  background: blue;
+}
+
+#loadButton{
+  background: blue;
+}
