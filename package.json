@@ -22,7 +22,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-prebuild": "rm -rf public/ && mkdir public",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "build": "yarn seed && cd client",
     "seed": "node scripts/seedDB.js",
